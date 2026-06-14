@@ -4,6 +4,7 @@
  */
 package vista;
 
+import img.FondoEscritorio;
 import controlador.ControladorUsuario;
 import javax.swing.JOptionPane;
 import modelo.Usuario;
@@ -19,6 +20,9 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
      */
     public FRMRegistrarse() {
         initComponents();
+        
+
+        
     }
 
     /**
@@ -30,6 +34,11 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        EscritorioRegistrarse = new FondoEscritorio();
+        TXTTelefono = new javax.swing.JTextField();
+        TXTCorreo = new javax.swing.JTextField();
+        PWContraseña = new javax.swing.JPasswordField();
+        PWConfirmarContraseña = new javax.swing.JPasswordField();
         LBLNombre = new javax.swing.JLabel();
         LBLTelefono = new javax.swing.JLabel();
         LBLCorreo = new javax.swing.JLabel();
@@ -37,77 +46,111 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
         LBLConfirmarContraseña = new javax.swing.JLabel();
         BTNCrearCuenta = new javax.swing.JButton();
         TXTNombre = new javax.swing.JTextField();
-        TXTTelefono = new javax.swing.JTextField();
-        TXTCorreo = new javax.swing.JTextField();
-        PWContraseña = new javax.swing.JPasswordField();
-        PWConfirmarContraseña = new javax.swing.JPasswordField();
 
+        LBLNombre.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLNombre.setForeground(new java.awt.Color(255, 255, 255));
         LBLNombre.setText("Nombre");
 
+        LBLTelefono.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLTelefono.setForeground(new java.awt.Color(255, 255, 255));
         LBLTelefono.setText("Telefono");
 
+        LBLCorreo.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLCorreo.setForeground(new java.awt.Color(255, 255, 255));
         LBLCorreo.setText("Correo");
 
+        LBLContraseña.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLContraseña.setForeground(new java.awt.Color(255, 255, 255));
         LBLContraseña.setText("Contraseña");
 
+        LBLConfirmarContraseña.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
         LBLConfirmarContraseña.setText("Confirmar Contraseña");
 
         BTNCrearCuenta.setText("Crear Cuenta");
         BTNCrearCuenta.addActionListener(this::BTNCrearCuentaActionPerformed);
 
+        EscritorioRegistrarse.setLayer(TXTTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(TXTCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(PWContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(PWConfirmarContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(LBLNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(LBLTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(LBLCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(LBLContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(LBLConfirmarContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(BTNCrearCuenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        EscritorioRegistrarse.setLayer(TXTNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout EscritorioRegistrarseLayout = new javax.swing.GroupLayout(EscritorioRegistrarse);
+        EscritorioRegistrarse.setLayout(EscritorioRegistrarseLayout);
+        EscritorioRegistrarseLayout.setHorizontalGroup(
+            EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioRegistrarseLayout.createSequentialGroup()
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EscritorioRegistrarseLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LBLCorreo)
+                            .addComponent(LBLContraseña)
+                            .addComponent(LBLConfirmarContraseña)
+                            .addComponent(LBLTelefono)
+                            .addComponent(LBLNombre))
+                        .addGap(77, 77, 77)
+                        .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TXTNombre)
+                                .addComponent(TXTTelefono)
+                                .addComponent(TXTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PWConfirmarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(EscritorioRegistrarseLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(BTNCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        EscritorioRegistrarseLayout.setVerticalGroup(
+            EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EscritorioRegistrarseLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBLNombre))
+                .addGap(18, 18, 18)
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLTelefono)
+                    .addComponent(TXTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLCorreo)
+                    .addComponent(TXTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLContraseña)
+                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(EscritorioRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLConfirmarContraseña)
+                    .addComponent(PWConfirmarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(BTNCrearCuenta)
+                .addGap(33, 33, 33))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LBLNombre)
-                            .addComponent(LBLTelefono)
-                            .addComponent(LBLCorreo)
-                            .addComponent(LBLContraseña)
-                            .addComponent(LBLConfirmarContraseña))
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TXTNombre)
-                                .addComponent(TXTTelefono)
-                                .addComponent(TXTCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                                .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(PWConfirmarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(BTNCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(EscritorioRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLNombre)
-                    .addComponent(TXTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLTelefono)
-                    .addComponent(TXTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLCorreo)
-                    .addComponent(TXTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLContraseña)
-                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLConfirmarContraseña)
-                    .addComponent(PWConfirmarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(BTNCrearCuenta)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addComponent(EscritorioRegistrarse)
+                .addContainerGap())
         );
 
         pack();
@@ -162,6 +205,7 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNCrearCuenta;
+    private javax.swing.JDesktopPane EscritorioRegistrarse;
     private javax.swing.JLabel LBLConfirmarContraseña;
     private javax.swing.JLabel LBLContraseña;
     private javax.swing.JLabel LBLCorreo;

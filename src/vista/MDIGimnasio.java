@@ -4,6 +4,7 @@
  */
 package vista;
 
+import img.FondoEscritorio0;
 import java.beans.PropertyVetoException;
 import modelo.ConexionBD;
 
@@ -21,6 +22,9 @@ public class MDIGimnasio extends javax.swing.JFrame {
     public MDIGimnasio() {
         ConexionBD.getInstance();
         initComponents();
+        
+        
+        
         fIniciarSesion    = new FRMIniciarSesion();
         fRegistrarse      = new FRMRegistrarse();
         
@@ -37,20 +41,12 @@ public class MDIGimnasio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        escritorio = new javax.swing.JDesktopPane();
+        escritorio = new FondoEscritorio0();
         menuBar = new javax.swing.JMenuBar();
         MNUAdministrar = new javax.swing.JMenu();
         itemIniciarSeción = new javax.swing.JMenuItem();
         itemRegistrarse = new javax.swing.JMenuItem();
         itemSalir = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,51 +69,17 @@ public class MDIGimnasio extends javax.swing.JFrame {
 
         menuBar.add(MNUAdministrar);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
-
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
-
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
-
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
-
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
 
         pack();
@@ -142,6 +104,7 @@ public class MDIGimnasio extends javax.swing.JFrame {
 
     private void itemRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarseActionPerformed
         // TODO add your handling code here:
+        System.out.println("Abriendo registro... ");
         fRegistrarse.setVisible(true);
     }//GEN-LAST:event_itemRegistrarseActionPerformed
 
@@ -182,19 +145,11 @@ public class MDIGimnasio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MNUAdministrar;
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem itemIniciarSeción;
     private javax.swing.JMenuItem itemRegistrarse;
     private javax.swing.JMenuItem itemSalir;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem pasteMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

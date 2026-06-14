@@ -4,6 +4,9 @@
  */
 package vista;
 
+import controlador.ControladorUsuario;
+import img.FondoEscritorio;
+import javax.swing.JOptionPane;
 /**
  *
  * @author erick
@@ -26,72 +29,130 @@ public class FRMIniciarSesion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritorioIniciarSesion = new FondoEscritorio();
+        BTNIniciarSesion = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        LBLContraseñaOlvidada = new javax.swing.JLabel();
+        PWContraseña = new javax.swing.JPasswordField();
+        LBLContraseña = new javax.swing.JLabel();
         LBLUsuario = new javax.swing.JLabel();
         TXTUsuario = new javax.swing.JTextField();
-        LBLContraseña = new javax.swing.JLabel();
-        BTNIniciarSesion = new javax.swing.JButton();
-        PWContraseña = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
-
-        LBLUsuario.setText("Usuario");
-
-        LBLContraseña.setText("Contraseña");
 
         BTNIniciarSesion.setText("Iniciar Sesión");
+        BTNIniciarSesion.addActionListener(this::BTNIniciarSesionActionPerformed);
 
-        PWContraseña.setText("jPasswordField1");
+        LBLContraseñaOlvidada.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLContraseñaOlvidada.setForeground(new java.awt.Color(255, 255, 255));
+        LBLContraseñaOlvidada.setText("¿Olvidaste tu contraseña?");
+
+        LBLContraseña.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        LBLContraseña.setText("Contraseña");
+
+        LBLUsuario.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
+        LBLUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        LBLUsuario.setText("Usuario");
+
+        escritorioIniciarSesion.setLayer(BTNIniciarSesion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(LBLContraseñaOlvidada, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(PWContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(LBLContraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(LBLUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorioIniciarSesion.setLayer(TXTUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout escritorioIniciarSesionLayout = new javax.swing.GroupLayout(escritorioIniciarSesion);
+        escritorioIniciarSesion.setLayout(escritorioIniciarSesionLayout);
+        escritorioIniciarSesionLayout.setHorizontalGroup(
+            escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(escritorioIniciarSesionLayout.createSequentialGroup()
+                .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(escritorioIniciarSesionLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(escritorioIniciarSesionLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(LBLUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LBLContraseña))
+                                .addGap(56, 56, 56)
+                                .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(escritorioIniciarSesionLayout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(BTNIniciarSesion))))
+                    .addGroup(escritorioIniciarSesionLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(LBLContraseñaOlvidada, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        escritorioIniciarSesionLayout.setVerticalGroup(
+            escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioIniciarSesionLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LBLUsuario)
+                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(escritorioIniciarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LBLContraseña))
+                .addGap(65, 65, 65)
+                .addComponent(BTNIniciarSesion)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LBLContraseñaOlvidada, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(LBLUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LBLContraseña))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(BTNIniciarSesion)))
-                .addContainerGap(62, Short.MAX_VALUE))
+            .addComponent(escritorioIniciarSesion)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LBLUsuario)
-                    .addComponent(TXTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PWContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LBLContraseña))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BTNIniciarSesion)
-                .addGap(69, 69, 69))
+            .addComponent(escritorioIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNIniciarSesionActionPerformed
+        // TODO add your handling code here:
+        String usuario = TXTUsuario.getText();
+        String contraseña = String.valueOf(PWContraseña.getPassword());
+        
+        ControladorUsuario controlador = new ControladorUsuario();
+
+        if(usuario.isEmpty() || contraseña.isEmpty()){
+            JOptionPane.showMessageDialog(this,
+                "Debe completar todos los campos");
+            return;
+        }
+        if(controlador.iniciarSesion(usuario, contraseña)){
+            JOptionPane.showMessageDialog(this,
+                "Inicio de sesión correcto");
+        }else{
+
+            JOptionPane.showMessageDialog(this,
+                "Usuario o contraseña incorrectos");
+        }
+    }//GEN-LAST:event_BTNIniciarSesionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNIniciarSesion;
     private javax.swing.JLabel LBLContraseña;
+    private javax.swing.JLabel LBLContraseñaOlvidada;
     private javax.swing.JLabel LBLUsuario;
     private javax.swing.JPasswordField PWContraseña;
     private javax.swing.JTextField TXTUsuario;
+    private javax.swing.JDesktopPane escritorioIniciarSesion;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
