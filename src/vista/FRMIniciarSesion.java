@@ -7,17 +7,26 @@ package vista;
 import controlador.ControladorUsuario;
 import img.FondoEscritorio;
 import javax.swing.JOptionPane;
+import modelo.ConexionBD;
+import vista.MDIGimnasio;
 /**
  *
  * @author erick
  */
 public class FRMIniciarSesion extends javax.swing.JInternalFrame {
 
+    private MDIGimnasio mdi;
+    FRMUsuario fUsuario;
+    
     /**
      * Creates new form FRMIniciarSesion
      */
-    public FRMIniciarSesion() {
+    public FRMIniciarSesion(MDIGimnasio mdi) {
+        this.mdi = mdi;
+        ConexionBD.getInstance();
         initComponents();
+        
+        
     }
 
     /**
@@ -137,6 +146,11 @@ public class FRMIniciarSesion extends javax.swing.JInternalFrame {
         if(controlador.iniciarSesion(usuario, contraseña)){
             JOptionPane.showMessageDialog(this,
                 "Inicio de sesión correcto");
+            
+            
+            mdi.mostrarUsuario();
+            
+            this.dispose();
         }else{
 
             JOptionPane.showMessageDialog(this,

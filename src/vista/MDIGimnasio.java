@@ -15,6 +15,7 @@ import modelo.ConexionBD;
 public class MDIGimnasio extends javax.swing.JFrame {
     FRMIniciarSesion fIniciarSesion;
     FRMRegistrarse  fRegistrarse;
+    FRMUsuario fUsuario;
 
     /**
      * Creates new form MDIGimnasio
@@ -25,11 +26,20 @@ public class MDIGimnasio extends javax.swing.JFrame {
         
         
         
-        fIniciarSesion    = new FRMIniciarSesion();
+        fIniciarSesion    = new FRMIniciarSesion(this);
         fRegistrarse      = new FRMRegistrarse();
+        fUsuario = new FRMUsuario();
         
         escritorio.add(fIniciarSesion);
         escritorio.add(fRegistrarse);
+        escritorio.add(fUsuario);
+    }
+    
+    public javax.swing.JDesktopPane getEscritorio() {
+    return escritorio;
+}
+    public void mostrarUsuario() {
+        fUsuario.setVisible(true);
     }
 
     /**
