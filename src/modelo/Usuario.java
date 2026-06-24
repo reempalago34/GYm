@@ -16,6 +16,7 @@ public class Usuario {
     private String correo;
     private String contraseña;
     private String confirmarContraseña;
+    private String rol;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -63,6 +64,14 @@ public class Usuario {
 
     public void setConfirmarContraseña(String confirmarContraseña) {
         this.confirmarContraseña = confirmarContraseña;
+    }
+    
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     
