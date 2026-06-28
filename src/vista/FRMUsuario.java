@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package vista;
+import modelo.PanelHorarios;
 import modelo.PanelMembresias;
+import modelo.PanelUsuarios;
+import modelo.Usuario;
 /**
  *
  * @author erick
@@ -13,8 +16,14 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
     /**
      * Creates new form FRMUsuario
      */
-    public FRMUsuario() {
+    public FRMUsuario(Usuario usuario) {
         initComponents();
+        if(usuario.getRol().equals("ADMIN")){
+            BTNUsuarios.setVisible(true);
+            BNTMembresias.setVisible(true);
+            BNTHorario.setVisible(true);
+        }
+        
     }
 
     /**
@@ -35,14 +44,18 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         BTNSalir = new javax.swing.JButton();
         PNLMostrarContenido = new modelo.FondoPanel ();
 
+        setClosable(true);
+
         BTNInicio.setText("Inicio");
 
         BNTMembresias.setText("Membresias");
         BNTMembresias.addActionListener(this::BNTMembresiasActionPerformed);
 
         BNTHorario.setText("Horarios");
+        BNTHorario.addActionListener(this::BNTHorarioActionPerformed);
 
         BTNUsuarios.setText("Usuarios");
+        BTNUsuarios.addActionListener(this::BTNUsuariosActionPerformed);
 
         BTNSalir.setText("Salir");
 
@@ -127,6 +140,32 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         PNLMostrarContenido.revalidate();
         PNLMostrarContenido.repaint();
     }//GEN-LAST:event_BNTMembresiasActionPerformed
+
+    private void BNTHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNTHorarioActionPerformed
+        // TODO add your handling code here:
+        PNLMostrarContenido.removeAll();
+
+    PanelHorarios panel = new PanelHorarios();
+
+    PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
+    PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
+
+    PNLMostrarContenido.revalidate();
+    PNLMostrarContenido.repaint();
+    }//GEN-LAST:event_BNTHorarioActionPerformed
+
+    private void BTNUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNUsuariosActionPerformed
+        // TODO add your handling code here:
+        PNLMostrarContenido.removeAll();
+
+    PanelUsuarios panel = new PanelUsuarios((javax.swing.JDesktopPane)getDesktopPane());
+
+    PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
+    PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
+
+    PNLMostrarContenido.revalidate();
+    PNLMostrarContenido.repaint();
+    }//GEN-LAST:event_BTNUsuariosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

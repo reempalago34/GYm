@@ -8,7 +8,7 @@ import controlador.ControladorUsuario;
 import img.FondoEscritorio;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
-import vista.MDIGimnasio;
+
 /**
  *
  * @author erick
@@ -46,6 +46,8 @@ public class FRMIniciarSesion extends javax.swing.JInternalFrame {
         LBLContraseña = new javax.swing.JLabel();
         LBLUsuario = new javax.swing.JLabel();
         TXTUsuario = new javax.swing.JTextField();
+
+        setClosable(true);
 
         BTNIniciarSesion.setText("Iniciar Sesión");
         BTNIniciarSesion.addActionListener(this::BTNIniciarSesionActionPerformed);
@@ -148,7 +150,7 @@ public class FRMIniciarSesion extends javax.swing.JInternalFrame {
                 "Inicio de sesión correcto");
             
             
-            mdi.mostrarUsuario();
+            mdi.mostrarUsuario(usuario);
             
             this.dispose();
         }else{

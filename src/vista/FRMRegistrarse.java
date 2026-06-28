@@ -15,6 +15,8 @@ import modelo.Usuario;
  */
 public class FRMRegistrarse extends javax.swing.JInternalFrame {
 
+    private Usuario usuarioEditar;
+    private int idUsuario = 0;
     /**
      * Creates new form FRMRegistrarse
      */
@@ -24,6 +26,21 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
 
         
     }
+    
+    public FRMRegistrarse(Usuario usuario) {
+    initComponents();
+
+    usuarioEditar = usuario;
+    TXTNombre.setText(usuario.getNombre());
+    TXTTelefono.setText(usuario.getTelefono());
+    TXTCorreo.setText(usuario.getCorreo());
+    PWContraseña.setText(usuario.getContraseña());
+    PWConfirmarContraseña.setText(usuario.getContraseña());
+
+    idUsuario = usuario.getIdUsuario();
+    BTNCrearCuenta.setText("Actualizar");
+
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,6 +63,8 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
         LBLConfirmarContraseña = new javax.swing.JLabel();
         BTNCrearCuenta = new javax.swing.JButton();
         TXTNombre = new javax.swing.JTextField();
+
+        setClosable(true);
 
         LBLNombre.setFont(new java.awt.Font("Courier 10 Pitch", 1, 13)); // NOI18N
         LBLNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,40 +185,51 @@ public class FRMRegistrarse extends javax.swing.JInternalFrame {
         String confirmar = String.valueOf(PWConfirmarContraseña.getPassword());
         
         if(nombre.isEmpty() || telefono.isEmpty() || correo.isEmpty() || contraseña.isEmpty() || confirmar.isEmpty()){
-            javax.swing.JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this, 
                     "Debe completar todos los campos");
             return;
         }
         if(!contraseña.equals(confirmar)){
-            javax.swing.JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this, 
                     "Las contraseñas no coinciden");
             return;
         }
+        
         Usuario usuario = new Usuario();
         
+        usuario.setIdUsuario(idUsuario);
         usuario.setNombre(nombre);
         usuario.setTelefono(telefono);
         usuario.setCorreo(correo);
         usuario.setContraseña(contraseña);
         
-        ControladorUsuario controlador = new ControladorUsuario();
-        
-        if(controlador.guardarUsuario(usuario)){
-            
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "Cuenta creada correctamente");
-            
-                TXTNombre.setText("");
-                TXTTelefono.setText("");
-                TXTCorreo.setText("");
-                PWContraseña.setText("");
-                PWConfirmarContraseña.setText("");
-        }else{
-            JOptionPane.showMessageDialog(this,
-                    "Error al crear la cuenta");
-            
+        if(usuarioEditar != null){
+            usuario.setRol(usuarioEditar.getRol());
         }
         
+        ControladorUsuario controlador = new ControladorUsuario();
+        
+        boolean resultado;
+        
+        if(idUsuario == 0){
+            resultado = controlador.guardarUsuario(usuario);
+        }else{
+            resultado = controlador.actualizarUsuario(usuario);
+        }
+        
+        if(resultado){
+            JOptionPane.showMessageDialog(this,
+                idUsuario == 0 ?
+                "Cuenta creada correctamente" :
+                "Usuario actualizado correctamente");
+            dispose();
+
+        }else{
+
+            JOptionPane.showMessageDialog(this,
+                    "Error al guardar la información");
+            
+        }
     }//GEN-LAST:event_BTNCrearCuentaActionPerformed
 
 

@@ -6,7 +6,11 @@ package vista;
 
 import img.FondoEscritorio0;
 import java.beans.PropertyVetoException;
+import controlador.ControladorUsuario;
 import modelo.ConexionBD;
+import modelo.Usuario;
+
+
 
 /**
  *
@@ -15,7 +19,7 @@ import modelo.ConexionBD;
 public class MDIGimnasio extends javax.swing.JFrame {
     FRMIniciarSesion fIniciarSesion;
     FRMRegistrarse  fRegistrarse;
-    FRMUsuario fUsuario;
+    
 
     /**
      * Creates new form MDIGimnasio
@@ -28,17 +32,30 @@ public class MDIGimnasio extends javax.swing.JFrame {
         
         fIniciarSesion    = new FRMIniciarSesion(this);
         fRegistrarse      = new FRMRegistrarse();
-        fUsuario = new FRMUsuario();
+        
         
         escritorio.add(fIniciarSesion);
         escritorio.add(fRegistrarse);
-        escritorio.add(fUsuario);
+        
     }
     
     public javax.swing.JDesktopPane getEscritorio() {
     return escritorio;
 }
-    public void mostrarUsuario() {
+    public void mostrarUsuario(String nombreUsuario) {
+
+        ControladorUsuario controlador = new ControladorUsuario();
+
+        Usuario usuario = controlador.buscarPorNombre(nombreUsuario);
+
+        if(usuario == null){
+            return;
+        }
+
+        FRMUsuario fUsuario = new FRMUsuario(usuario);
+
+        escritorio.add(fUsuario);
+
         fUsuario.setVisible(true);
     }
 
@@ -109,12 +126,20 @@ public class MDIGimnasio extends javax.swing.JFrame {
 
     private void itemIniciarSeciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarSeciónActionPerformed
         // TODO add your handling code here:
+        fIniciarSesion = new FRMIniciarSesion(this);
+
+        escritorio.add(fIniciarSesion);
+        
         fIniciarSesion.setVisible(true);
     }//GEN-LAST:event_itemIniciarSeciónActionPerformed
 
     private void itemRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarseActionPerformed
         // TODO add your handling code here:
         System.out.println("Abriendo registro... ");
+        fRegistrarse = new FRMRegistrarse();
+
+        escritorio.add(fRegistrarse);
+        
         fRegistrarse.setVisible(true);
     }//GEN-LAST:event_itemRegistrarseActionPerformed
 
