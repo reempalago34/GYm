@@ -30,6 +30,9 @@ public class ConexionBD {
             System.err.println("Error al conectarme:"+ex.getMessage());
         }
     }
+    public static Connection getConexion() {
+        return conexion;
+    }
     
     public static void desconectar(){
         try {
@@ -48,4 +51,5 @@ public class ConexionBD {
 
         private static final ConexionBD INSTANCE = new ConexionBD();
     }
+    
 }

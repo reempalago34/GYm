@@ -35,34 +35,41 @@ public class ControladorUsuario {
         }
     }
     
-    public boolean iniciarSesion(String nombre, String contraseña){
+    public Usuario iniciarSesion(String nombre, String contraseña){
         try {
             
             ConexionBD.getInstance();
 
-            String sql = "SELECT contraseña FROM usuario WHERE nombre = ?";
+            String sql = "SELECT contraseña FROM usuario WHERE nombre = ? AND contraseña=?";
 
             PreparedStatement ps =
                 ConexionBD.conexion.prepareStatement(sql);
 
             ps.setString(1, nombre);
+            ps.setString(2, contraseña);
 
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()){
 
-                String contraseñaBD = rs.getString("contraseña");
+                Usuario usuario = new Usuario();
 
-                return contraseñaBD.equals(contraseña);
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setCorreo(rs.getString("correo"));
+                usuario.setContraseña(rs.getString("contraseña"));
+                usuario.setRol(rs.getString("rol"));
+
+                return usuario;
             }
 
-            return false;
+            
 
         } catch(SQLException ex){
-            System.out.println("Error al iniciar sesión: "
-                + ex.getMessage());
-            return false;
+            System.out.println("Error al iniciar sesión: " + ex.getMessage());
         }
+        return null;
     }
     
     public Usuario buscarUsuario(int id) {

@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/erick/NetBeansProjects/GYm/src/vista/FRMIniciarSesion.java</file>
-            <file>file:/home/erick/NetBeansProjects/GYm/src/vista/MDIGimnasio.java</file>
-            <file>file:/home/erick/NetBeansProjects/GYm/src/vista/FRMUsuario.java</file>
-            <file>file:/home/erick/NetBeansProjects/GYm/src/modelo/Usuario.java</file>
-            <file>file:/home/erick/NetBeansProjects/GYm/src/controlador/ControladorUsuario.java</file>
+            <file>file:/home/erick/NetBeansProjects/GYm/src/controlador/ControladorHorario.java</file>
+            <file>file:/home/erick/NetBeansProjects/GYm/src/modelo/Entrenador.java</file>
+            <file>file:/home/erick/NetBeansProjects/GYm/src/controlador/ControladorEntrenador.java</file>
+            <file>file:/home/erick/NetBeansProjects/GYm/src/modelo/ConexionBD.java</file>
         </group>
     </open-files>
 </project-private>

@@ -42,12 +42,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                       <Component id="BNTHorario" alignment="1" max="32767" attributes="0"/>
-                      <Component id="BTNInicio" alignment="0" max="32767" attributes="0"/>
+                      <Component id="BTNEntrenador" alignment="0" max="32767" attributes="0"/>
                       <Component id="BNTMembresias" alignment="0" pref="204" max="32767" attributes="0"/>
                       <Component id="BTNSalir" alignment="0" max="32767" attributes="0"/>
                       <Component id="BTNUsuarios" alignment="1" max="32767" attributes="0"/>
@@ -62,25 +62,28 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" pref="117" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BTNInicio" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="BTNEntrenador" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BNTMembresias" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BNTHorario" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BTNUsuarios" min="-2" pref="35" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="BTNSalir" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="BTNSalir" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="BTNInicio">
+        <Component class="javax.swing.JButton" name="BTNEntrenador">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Inicio"/>
+            <Property name="text" type="java.lang.String" value="Entrenadores"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTNEntrenadorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BNTMembresias">
           <Properties>

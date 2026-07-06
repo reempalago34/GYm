@@ -7,6 +7,8 @@ import modelo.PanelHorarios;
 import modelo.PanelMembresias;
 import modelo.PanelUsuarios;
 import modelo.Usuario;
+import modelo.Entrenador;
+import modelo.PanelEntrenador;
 /**
  *
  * @author erick
@@ -22,6 +24,7 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
             BTNUsuarios.setVisible(true);
             BNTMembresias.setVisible(true);
             BNTHorario.setVisible(true);
+            BTNEntrenador.setVisible(true);
         }
         
     }
@@ -36,7 +39,7 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         PNLBotonesMenu = new javax.swing.JPanel();
-        BTNInicio = new javax.swing.JButton();
+        BTNEntrenador = new javax.swing.JButton();
         BNTMembresias = new javax.swing.JButton();
         BNTHorario = new javax.swing.JButton();
         BTNUsuarios = new javax.swing.JButton();
@@ -46,7 +49,8 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        BTNInicio.setText("Inicio");
+        BTNEntrenador.setText("Entrenadores");
+        BTNEntrenador.addActionListener(this::BTNEntrenadorActionPerformed);
 
         BNTMembresias.setText("Membresias");
         BNTMembresias.addActionListener(this::BNTMembresiasActionPerformed);
@@ -63,15 +67,15 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         PNLBotonesMenu.setLayout(PNLBotonesMenuLayout);
         PNLBotonesMenuLayout.setHorizontalGroup(
             PNLBotonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PNLBotonesMenuLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PNLBotonesMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PNLBotonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BNTHorario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BTNInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BNTMembresias, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                    .addComponent(BTNSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BTNUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(PNLBotonesMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BNTHorario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNEntrenador, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BNTMembresias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                    .addComponent(BTNSalir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BTNUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PNLBotonesMenuLayout.setVerticalGroup(
@@ -80,16 +84,16 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BTNEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BNTMembresias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BNTHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BTNUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(BTNSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout PNLMostrarContenidoLayout = new javax.swing.GroupLayout(PNLMostrarContenido);
@@ -126,7 +130,7 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         PNLMostrarContenido.removeAll();
 
         PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
-        PanelMembresias panel = new PanelMembresias();
+        PanelMembresias panel = new PanelMembresias((javax.swing.JDesktopPane) getDesktopPane());
 
         panel.setSize(
             PNLMostrarContenido.getWidth(),
@@ -145,13 +149,13 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         PNLMostrarContenido.removeAll();
 
-    PanelHorarios panel = new PanelHorarios();
+        PanelHorarios panel = new PanelHorarios();
 
-    PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
-    PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
+        PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
+        PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
 
-    PNLMostrarContenido.revalidate();
-    PNLMostrarContenido.repaint();
+        PNLMostrarContenido.revalidate();
+        PNLMostrarContenido.repaint();
     }//GEN-LAST:event_BNTHorarioActionPerformed
 
     private void BTNUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNUsuariosActionPerformed
@@ -167,11 +171,25 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
     PNLMostrarContenido.repaint();
     }//GEN-LAST:event_BTNUsuariosActionPerformed
 
+    private void BTNEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNEntrenadorActionPerformed
+        // TODO add your handling code here:
+        PNLMostrarContenido.removeAll();
+
+        PanelEntrenador panel =
+                new PanelEntrenador((javax.swing.JDesktopPane) getDesktopPane());
+
+        PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
+        PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
+
+        PNLMostrarContenido.revalidate();
+        PNLMostrarContenido.repaint();
+    }//GEN-LAST:event_BTNEntrenadorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BNTHorario;
     private javax.swing.JButton BNTMembresias;
-    private javax.swing.JButton BTNInicio;
+    private javax.swing.JButton BTNEntrenador;
     private javax.swing.JButton BTNSalir;
     private javax.swing.JButton BTNUsuarios;
     private javax.swing.JPanel PNLBotonesMenu;
