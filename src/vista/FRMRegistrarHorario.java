@@ -4,6 +4,12 @@
  */
 package vista;
 
+import controlador.ControladorEntrenador;
+import controlador.ControladorHorario;
+import javax.swing.JOptionPane;
+import modelo.Entrenador;
+import modelo.HorariosEntrenadores;
+
 /**
  *
  * @author erick
@@ -23,13 +29,24 @@ public class FRMRegistrarHorario extends javax.swing.JInternalFrame {
         CBODiaHora.addItem("Domingo");
 
     }
+    private void cargarEntrenadores() {
+
+        CBOEntrenadorHora.removeAllItems();
+
+        ControladorEntrenador controlador = new ControladorEntrenador();
+
+        for (Entrenador e : controlador.listarEntrenadores()) {
+
+            CBOEntrenadorHora.addItem(e.getNombre());
+        }
+    }
     /**
      * Creates new form FRMRegistrarHorario
      */
     public FRMRegistrarHorario() {
         initComponents();
         cargarDias();
-        
+        cargarEntrenadores();
     }
 
     /**
@@ -49,8 +66,9 @@ public class FRMRegistrarHorario extends javax.swing.JInternalFrame {
         BTNRegistrarHorario = new javax.swing.JButton();
         CBOEntrenadorHora = new javax.swing.JComboBox<>();
         CBODiaHora = new javax.swing.JComboBox<>();
-        CBOHoraInicio = new javax.swing.JComboBox<>();
-        CBOHoraFin = new javax.swing.JComboBox<>();
+        TXTHoraInicio = new javax.swing.JTextField();
+        TXTHoraFin = new javax.swing.JTextField();
+        BTNCancelar = new javax.swing.JButton();
 
         jLabel1.setText("Entrenador");
 
@@ -61,43 +79,41 @@ public class FRMRegistrarHorario extends javax.swing.JInternalFrame {
         jLabel4.setText("Hora Fin");
 
         BTNRegistrarHorario.setText("CREAR");
+        BTNRegistrarHorario.addActionListener(this::BTNRegistrarHorarioActionPerformed);
 
-        CBOEntrenadorHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBOEntrenadorHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 3", "Item 4" }));
 
-        CBODiaHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CBODiaHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 3", "Item 4" }));
 
-        CBOHoraInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        CBOHoraFin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BTNCancelar.setText("Cancelar");
+        BTNCancelar.addActionListener(this::BTNCancelarActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(14, 14, 14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(2, 2, 2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(44, 44, 44))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(76, 76, 76)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CBOEntrenadorHora, 0, 82, Short.MAX_VALUE)
-                            .addComponent(CBODiaHora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CBOHoraInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CBOHoraFin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(BTNRegistrarHorario)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(14, 14, 14))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(2, 2, 2))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(44, 44, 44))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(BTNCancelar))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CBOEntrenadorHora, javax.swing.GroupLayout.Alignment.TRAILING, 0, 82, Short.MAX_VALUE)
+                    .addComponent(CBODiaHora, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TXTHoraInicio)
+                    .addComponent(BTNRegistrarHorario)
+                    .addComponent(TXTHoraFin))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -114,13 +130,15 @@ public class FRMRegistrarHorario extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(CBOHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TXTHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(CBOHoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TXTHoraFin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(BTNRegistrarHorario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNRegistrarHorario)
+                    .addComponent(BTNCancelar))
                 .addGap(41, 41, 41))
         );
 
@@ -143,13 +161,61 @@ public class FRMRegistrarHorario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BTNRegistrarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNRegistrarHorarioActionPerformed
+        // TODO add your handling code here:
+        String nombreEntrenador = CBOEntrenadorHora.getSelectedItem().toString();
+        String dia = CBODiaHora.getSelectedItem().toString();
+        String horaInicio = TXTHoraInicio.getText();
+        String horaFin = TXTHoraFin.getText();
+
+        if(horaInicio.isEmpty() || horaFin.isEmpty()){
+
+            JOptionPane.showMessageDialog(this,
+                    "Complete todos los campos");
+
+            return;
+        }
+
+        ControladorEntrenador controladorEntrenador = new ControladorEntrenador();
+
+        Entrenador entrenador =
+                controladorEntrenador.buscarPorNombre(nombreEntrenador);
+
+        HorariosEntrenadores horario = new HorariosEntrenadores();
+
+        horario.setIdEntrenador(entrenador.getIdEntrenador());
+        horario.setDia(dia);
+        horario.setHoraInicio(horaInicio);
+        horario.setHoraFin(horaFin);
+
+        ControladorHorario controladorHorario = new ControladorHorario();
+
+        if(controladorHorario.registrarHorario(horario)){
+
+            JOptionPane.showMessageDialog(this,
+                    "Horario registrado correctamente");
+
+            dispose();
+
+        }else{
+
+            JOptionPane.showMessageDialog(this,
+                    "No se pudo registrar el horario");
+        }
+    }//GEN-LAST:event_BTNRegistrarHorarioActionPerformed
+
+    private void BTNCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTNCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BTNCancelar;
     private javax.swing.JButton BTNRegistrarHorario;
     private javax.swing.JComboBox<String> CBODiaHora;
     private javax.swing.JComboBox<String> CBOEntrenadorHora;
-    private javax.swing.JComboBox<String> CBOHoraFin;
-    private javax.swing.JComboBox<String> CBOHoraInicio;
+    private javax.swing.JTextField TXTHoraFin;
+    private javax.swing.JTextField TXTHoraInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

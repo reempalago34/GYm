@@ -8,6 +8,7 @@ import controlador.ControladorUsuario;
 import img.FondoEscritorio;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
+import modelo.Usuario;
 
 /**
  *
@@ -140,17 +141,19 @@ public class FRMIniciarSesion extends javax.swing.JInternalFrame {
         
         ControladorUsuario controlador = new ControladorUsuario();
 
+        Usuario usuarioLogueado = controlador.iniciarSesion(usuario, contraseña);
+        
         if(usuario.isEmpty() || contraseña.isEmpty()){
             JOptionPane.showMessageDialog(this,
                 "Debe completar todos los campos");
             return;
         }
-        if(controlador.iniciarSesion(usuario, contraseña)){
+        if(usuarioLogueado != null){
             JOptionPane.showMessageDialog(this,
                 "Inicio de sesión correcto");
             
             
-            mdi.mostrarUsuario(usuario);
+            mdi.mostrarUsuario(usuarioLogueado);
             
             this.dispose();
         }else{

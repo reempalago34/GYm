@@ -149,7 +149,8 @@ public class FRMUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         PNLMostrarContenido.removeAll();
 
-        PanelHorarios panel = new PanelHorarios();
+        PanelHorarios panel = 
+                new PanelHorarios((javax.swing.JDesktopPane) getDesktopPane());
 
         PNLMostrarContenido.setLayout(new java.awt.BorderLayout());
         PNLMostrarContenido.add(panel, java.awt.BorderLayout.CENTER);
