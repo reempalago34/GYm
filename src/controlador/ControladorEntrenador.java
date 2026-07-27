@@ -110,6 +110,42 @@ public class ControladorEntrenador {
 
         return null;
     }
+    
+    public Entrenador buscarPorNombre(String nombre) {
+
+        try {
+
+            ConexionBD.getInstance();
+
+            String sql = "SELECT * FROM entrenador WHERE nombre = ?";
+
+            PreparedStatement ps = ConexionBD.getConexion().prepareStatement(sql);
+
+            ps.setString(1, nombre);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                Entrenador e = new Entrenador();
+
+                e.setIdEntrenador(rs.getInt("idEntrenador"));
+                e.setNombre(rs.getString("nombre"));
+                e.setTelefono(rs.getString("telefono"));
+                e.setCorreo(rs.getString("correo"));
+                e.setEspecialidad(rs.getString("especialidad"));
+
+                return e;
+            }
+
+        } catch (SQLException ex) {
+
+            System.out.println(ex.getMessage());
+
+        }
+
+        return null;
+    }
 
     public boolean actualizarEntrenador(Entrenador entrenador) {
         try {

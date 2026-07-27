@@ -40,7 +40,7 @@ public class ControladorUsuario {
             
             ConexionBD.getInstance();
 
-            String sql = "SELECT contraseña FROM usuario WHERE nombre = ? AND contraseña=?";
+            String sql = "SELECT * FROM usuario WHERE nombre = ? AND contraseña = ?";
 
             PreparedStatement ps =
                 ConexionBD.conexion.prepareStatement(sql);
