@@ -6,7 +6,6 @@ package vista;
 
 import img.FondoEscritorio0;
 import java.beans.PropertyVetoException;
-import controlador.ControladorUsuario;
 import modelo.ConexionBD;
 import modelo.Usuario;
 
@@ -42,12 +41,7 @@ public class MDIGimnasio extends javax.swing.JFrame {
     public javax.swing.JDesktopPane getEscritorio() {
     return escritorio;
 }
-    public void mostrarUsuario(String nombreUsuario) {
-
-        ControladorUsuario controlador = new ControladorUsuario();
-
-        Usuario usuario = controlador.buscarPorNombre(nombreUsuario);
-
+    public void mostrarUsuario(Usuario usuario) {
         if(usuario == null){
             return;
         }
